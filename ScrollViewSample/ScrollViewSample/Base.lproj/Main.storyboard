@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ScrollViewSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jl3-us-fEx" userLabel="dialogView">
+                                <rect key="frame" x="20.5" y="85" width="373" height="736"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6G-Py-LpS">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="257.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1O-8V-LCD" userLabel="ContainerView">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="257.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="n1O-8V-LCD" firstAttribute="width" secondItem="g6G-Py-LpS" secondAttribute="width" priority="999" id="5lU-lc-TK5"/>
+                                            <constraint firstItem="n1O-8V-LCD" firstAttribute="height" secondItem="g6G-Py-LpS" secondAttribute="height" id="6fq-DD-y1A"/>
+                                            <constraint firstItem="n1O-8V-LCD" firstAttribute="top" secondItem="g6G-Py-LpS" secondAttribute="top" id="7OE-jr-3Uo"/>
+                                            <constraint firstAttribute="bottom" secondItem="n1O-8V-LCD" secondAttribute="bottom" id="AYe-Uv-Ia9"/>
+                                            <constraint firstItem="n1O-8V-LCD" firstAttribute="leading" secondItem="g6G-Py-LpS" secondAttribute="leading" id="lvt-Hv-hBj"/>
+                                            <constraint firstAttribute="trailing" secondItem="n1O-8V-LCD" secondAttribute="trailing" id="wJk-U1-Ho1"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="FXV-hg-HiG"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="RaK-Eu-Gdw"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="g6G-Py-LpS" firstAttribute="top" secondItem="jl3-us-fEx" secondAttribute="top" id="dsg-7V-1XP"/>
+                                    <constraint firstItem="g6G-Py-LpS" firstAttribute="leading" secondItem="jl3-us-fEx" secondAttribute="leading" id="jue-Jv-HKr"/>
+                                    <constraint firstAttribute="trailing" secondItem="g6G-Py-LpS" secondAttribute="trailing" id="pMn-DE-MVw"/>
+                                    <constraint firstItem="g6G-Py-LpS" firstAttribute="height" secondItem="jl3-us-fEx" secondAttribute="height" multiplier="0.35" priority="250" id="xy1-XB-iN5"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egf-5C-odo">
+                                <rect key="frame" x="184" y="438" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W6Q-mh-bPg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jl3-us-fEx" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.9" id="a25-mc-AKK"/>
+                            <constraint firstItem="jl3-us-fEx" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.9" id="cmb-6L-GKz"/>
+                            <constraint firstItem="Egf-5C-odo" firstAttribute="centerX" secondItem="jl3-us-fEx" secondAttribute="centerX" id="g03-tK-oGJ"/>
+                            <constraint firstItem="Egf-5C-odo" firstAttribute="centerY" secondItem="jl3-us-fEx" secondAttribute="centerY" id="kgY-v4-zcm"/>
+                            <constraint firstItem="jl3-us-fEx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="t2d-KL-r4T"/>
+                            <constraint firstItem="jl3-us-fEx" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="zjg-OJ-SiY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="n1O-8V-LCD" id="403-tT-QQT"/>
+                        <outlet property="containerViewWidthConstraint" destination="5lU-lc-TK5" id="Brr-y7-SaU"/>
+                        <outlet property="scrollView" destination="g6G-Py-LpS" id="1Rp-lr-tlv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="113"/>
+        </scene>
+    </scenes>
+</document>
