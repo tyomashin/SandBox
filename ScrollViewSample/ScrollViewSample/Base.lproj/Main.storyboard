@@ -40,6 +40,8 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="U6X-pK-X9C"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="900" id="Vdr-HE-1cm"/>
                                     <constraint firstItem="g6G-Py-LpS" firstAttribute="top" secondItem="jl3-us-fEx" secondAttribute="top" id="dsg-7V-1XP"/>
                                     <constraint firstItem="g6G-Py-LpS" firstAttribute="leading" secondItem="jl3-us-fEx" secondAttribute="leading" id="jue-Jv-HKr"/>
                                     <constraint firstAttribute="trailing" secondItem="g6G-Py-LpS" secondAttribute="trailing" id="pMn-DE-MVw"/>
@@ -56,8 +58,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jl3-us-fEx" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.9" id="a25-mc-AKK"/>
-                            <constraint firstItem="jl3-us-fEx" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.9" id="cmb-6L-GKz"/>
+                            <constraint firstItem="jl3-us-fEx" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.9" priority="250" id="a25-mc-AKK"/>
+                            <constraint firstItem="jl3-us-fEx" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.9" priority="250" id="cmb-6L-GKz"/>
                             <constraint firstItem="Egf-5C-odo" firstAttribute="centerX" secondItem="jl3-us-fEx" secondAttribute="centerX" id="g03-tK-oGJ"/>
                             <constraint firstItem="Egf-5C-odo" firstAttribute="centerY" secondItem="jl3-us-fEx" secondAttribute="centerY" id="kgY-v4-zcm"/>
                             <constraint firstItem="jl3-us-fEx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="t2d-KL-r4T"/>
