@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MbD-sj-qS0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sample Table View Controller-->
+        <scene sceneID="lrJ-T7-LSO">
+            <objects>
+                <viewController id="MbD-sj-qS0" customClass="SampleTableViewController" customModule="MVPSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fyj-Fb-0pR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7o9-Qs-a2z">
+                                <rect key="frame" x="5" y="49" width="404" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIl-Vc-KxT">
+                                        <rect key="frame" x="0.0" y="0.0" width="131.5" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="first Button" image="sampleIcon"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xO9-sO-pic">
+                                        <rect key="frame" x="136.5" y="0.0" width="131" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvK-Q2-4j9">
+                                        <rect key="frame" x="272.5" y="0.0" width="131.5" height="80"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="csZ-tk-sHH"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x0E-l1-YfC">
+                                <rect key="frame" x="0.0" y="134" width="414" height="728"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7o9-Qs-a2z" firstAttribute="top" secondItem="K4y-w7-TXQ" secondAttribute="top" constant="5" id="3Iq-FN-c4N"/>
+                            <constraint firstItem="x0E-l1-YfC" firstAttribute="leading" secondItem="K4y-w7-TXQ" secondAttribute="leading" id="8OS-dK-QKG"/>
+                            <constraint firstItem="x0E-l1-YfC" firstAttribute="top" secondItem="7o9-Qs-a2z" secondAttribute="bottom" constant="5" id="GNf-GL-Nwj"/>
+                            <constraint firstItem="K4y-w7-TXQ" firstAttribute="bottom" secondItem="x0E-l1-YfC" secondAttribute="bottom" id="TWH-4R-ICa"/>
+                            <constraint firstItem="K4y-w7-TXQ" firstAttribute="trailing" secondItem="7o9-Qs-a2z" secondAttribute="trailing" constant="5" id="m7y-hn-YyT"/>
+                            <constraint firstItem="7o9-Qs-a2z" firstAttribute="leading" secondItem="K4y-w7-TXQ" secondAttribute="leading" constant="5" id="rtU-On-bDF"/>
+                            <constraint firstItem="K4y-w7-TXQ" firstAttribute="trailing" secondItem="x0E-l1-YfC" secondAttribute="trailing" id="sIX-dU-v7h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K4y-w7-TXQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="firstButton" destination="nIl-Vc-KxT" id="UIh-Sn-QBV"/>
+                        <outlet property="tableView" destination="x0E-l1-YfC" id="zO9-br-AvR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UAb-eX-TEX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="58" y="86"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="sampleIcon" width="36" height="36"/>
+    </resources>
+</document>

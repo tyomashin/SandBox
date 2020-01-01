@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GeofenceSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LCv-VJ-R3e" customClass="SampleView" customModule="GeofenceSample" customModuleProvider="target">
+                                <rect key="frame" x="157" y="403" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="kSM-ju-N4J"/>
+                                    <constraint firstAttribute="height" constant="100" id="sDm-Df-vFF"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bha-XN-iiX" userLabel="Label1">
+                                <rect key="frame" x="186" y="523" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4l-bJ-fel" userLabel="Label2">
+                                <rect key="frame" x="186" y="564" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRg-P1-sfl" userLabel="Label3">
+                                <rect key="frame" x="186" y="605" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjg-NU-R5i" userLabel="Label4">
+                                <rect key="frame" x="186" y="646" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bha-XN-iiX" firstAttribute="bottom" secondItem="q4l-bJ-fel" secondAttribute="top" constant="-20" id="6HY-xt-zeO"/>
+                            <constraint firstItem="q4l-bJ-fel" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CMb-uk-bNB"/>
+                            <constraint firstItem="sRg-P1-sfl" firstAttribute="top" secondItem="q4l-bJ-fel" secondAttribute="bottom" constant="20" id="EJV-ja-sh0"/>
+                            <constraint firstItem="Bha-XN-iiX" firstAttribute="top" secondItem="LCv-VJ-R3e" secondAttribute="bottom" constant="20" id="Ii3-K3-eg7"/>
+                            <constraint firstItem="Cjg-NU-R5i" firstAttribute="top" secondItem="sRg-P1-sfl" secondAttribute="bottom" constant="20" id="Ml0-CB-vZv"/>
+                            <constraint firstItem="Bha-XN-iiX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZdC-tz-KYr"/>
+                            <constraint firstItem="LCv-VJ-R3e" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="5" id="ava-6T-eu0"/>
+                            <constraint firstItem="Cjg-NU-R5i" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hOh-pn-yKn"/>
+                            <constraint firstItem="LCv-VJ-R3e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pdk-8Y-9RS"/>
+                            <constraint firstItem="sRg-P1-sfl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="u39-0f-ZLU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="label1" destination="Bha-XN-iiX" id="Q0i-6h-8EB"/>
+                        <outlet property="label2" destination="q4l-bJ-fel" id="68i-Xq-xOy"/>
+                        <outlet property="label3" destination="sRg-P1-sfl" id="obJ-IW-W9N"/>
+                        <outlet property="label4" destination="Cjg-NU-R5i" id="L5u-pu-95M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="109"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomCollectionViewCell" customModule="CustomViewCollections" customModuleProvider="target">
+            <connections>
+                <outlet property="baseView" destination="iN0-l3-epB" id="R5j-4y-4DN"/>
+                <outlet property="button" destination="VfV-ZY-GXy" id="wm5-fR-hRd"/>
+                <outlet property="imageCollectionView" destination="6gj-3F-Yk7" id="aiY-eC-LSG"/>
+                <outlet property="imageView" destination="xiW-OP-b66" id="bhh-DM-xty"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gj-3F-Yk7" userLabel="TagAreaView" customClass="ImageCollectionView" customModule="CustomViewCollections" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="200" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfV-ZY-GXy">
+                    <rect key="frame" x="77" y="260" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmk-9K-oyc">
+                    <rect key="frame" x="0.0" y="74" width="200" height="150"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xiW-OP-b66">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="xiW-OP-b66" firstAttribute="centerY" secondItem="qmk-9K-oyc" secondAttribute="centerY" id="2dn-1A-fi9"/>
+                        <constraint firstItem="xiW-OP-b66" firstAttribute="width" secondItem="qmk-9K-oyc" secondAttribute="width" id="lNL-O3-5A5"/>
+                        <constraint firstItem="xiW-OP-b66" firstAttribute="centerX" secondItem="qmk-9K-oyc" secondAttribute="centerX" id="nDe-7k-H5U"/>
+                        <constraint firstItem="xiW-OP-b66" firstAttribute="height" secondItem="qmk-9K-oyc" secondAttribute="height" id="xCU-Vo-3Tr"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6gj-3F-Yk7" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1" id="50z-rB-gmS"/>
+                <constraint firstItem="VfV-ZY-GXy" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="AA2-MU-vs6"/>
+                <constraint firstItem="6gj-3F-Yk7" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Ac6-5Z-U74"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="leading" secondItem="qmk-9K-oyc" secondAttribute="leading" id="JHl-e9-wkg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VfV-ZY-GXy" secondAttribute="bottom" constant="10" id="QfD-qO-PFv"/>
+                <constraint firstItem="qmk-9K-oyc" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="SZf-X3-qzd"/>
+                <constraint firstItem="qmk-9K-oyc" firstAttribute="top" secondItem="6gj-3F-Yk7" secondAttribute="bottom" id="Wuv-UX-sMK"/>
+                <constraint firstItem="qmk-9K-oyc" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="aEv-S7-bTx"/>
+                <constraint firstItem="6gj-3F-Yk7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="b4S-fQ-mfz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="leading" secondItem="6gj-3F-Yk7" secondAttribute="leading" id="sb0-E1-8VZ"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="139" y="129"/>
+        </view>
+    </objects>
+</document>

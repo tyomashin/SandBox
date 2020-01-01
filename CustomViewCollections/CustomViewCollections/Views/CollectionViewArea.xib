@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CollectionViewArea" customModule="CustomViewCollections" customModuleProvider="target">
+            <connections>
+                <outlet property="baseView" destination="iN0-l3-epB" id="aS6-Wr-7a4"/>
+                <outlet property="collectionView" destination="7Cd-oZ-EIt" id="8jB-6d-bjn"/>
+                <outlet property="collectionViewAreaLabel" destination="nNL-fP-MOO" id="qel-Qh-LEM"/>
+                <outlet property="footerView" destination="SmH-8z-t9r" id="wx1-bO-NTm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNL-fP-MOO">
+                    <rect key="frame" x="0.0" y="24" width="400" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7Cd-oZ-EIt">
+                    <rect key="frame" x="0.0" y="55" width="400" height="197"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q5N-Vx-UuL">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmH-8z-t9r">
+                    <rect key="frame" x="0.0" y="260" width="400" height="60"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="3lp-Kt-UtA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nNL-fP-MOO" secondAttribute="trailing" id="6Bb-ct-V1w"/>
+                <constraint firstItem="7Cd-oZ-EIt" firstAttribute="top" secondItem="nNL-fP-MOO" secondAttribute="bottom" constant="10" id="CcM-fW-LGb"/>
+                <constraint firstItem="nNL-fP-MOO" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="Cw7-cX-qW4"/>
+                <constraint firstItem="SmH-8z-t9r" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="KDQ-nW-wsX"/>
+                <constraint firstItem="7Cd-oZ-EIt" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Nl4-Kd-cMJ"/>
+                <constraint firstItem="7Cd-oZ-EIt" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="Rnh-16-87q"/>
+                <constraint firstItem="SmH-8z-t9r" firstAttribute="top" secondItem="7Cd-oZ-EIt" secondAttribute="bottom" constant="8" symbolic="YES" id="b92-Gu-gIP"/>
+                <constraint firstItem="nNL-fP-MOO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bMA-NS-WoJ"/>
+                <constraint firstItem="SmH-8z-t9r" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="20" id="eTL-g6-QTD"/>
+                <constraint firstItem="SmH-8z-t9r" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="iIw-fc-gOr"/>
+                <constraint firstItem="SmH-8z-t9r" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="xdz-1G-ph2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="nNL-fP-MOO" secondAttribute="top" constant="20" id="zeJ-EX-ZDG"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
+        </view>
+    </objects>
+</document>

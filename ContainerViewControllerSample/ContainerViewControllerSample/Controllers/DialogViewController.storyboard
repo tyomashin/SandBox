@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k8N-8R-oib">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dialog View Controller-->
+        <scene sceneID="kbO-Bo-JTt">
+            <objects>
+                <viewController id="k8N-8R-oib" customClass="DialogViewController" customModule="ContainerViewControllerSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cMG-2x-JSH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dP4-gr-7jP" userLabel="BackgroundView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwE-DZ-dYp" userLabel="DialogView">
+                                        <rect key="frame" x="41.5" y="179" width="331" height="538"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyh-GN-BYr" userLabel="CloseButton" customClass="CustomCloseButton" customModule="ContainerViewControllerSample" customModuleProvider="target">
+                                        <rect key="frame" x="177" y="752.5" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Lp5-Mf-rZ2"/>
+                                            <constraint firstAttribute="width" constant="60" id="fXn-zc-deN"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchCloseButton:" destination="k8N-8R-oib" eventType="touchUpInside" id="iQ6-vX-572"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2L-TY-AdT" customClass="HeaderButton" customModule="ContainerViewControllerSample" customModuleProvider="target">
+                                        <rect key="frame" x="165.5" y="406.5" width="83" height="83"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="0.74505029965753411" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="fwE-DZ-dYp" firstAttribute="height" secondItem="dP4-gr-7jP" secondAttribute="height" multiplier="0.6" id="CRR-Un-42e"/>
+                                    <constraint firstItem="fwE-DZ-dYp" firstAttribute="centerX" secondItem="dP4-gr-7jP" secondAttribute="centerX" id="F1F-pc-kVH"/>
+                                    <constraint firstItem="Hyh-GN-BYr" firstAttribute="top" secondItem="fwE-DZ-dYp" secondAttribute="bottom" constant="35.5" id="UBR-De-Z7I"/>
+                                    <constraint firstItem="G2L-TY-AdT" firstAttribute="centerX" secondItem="dP4-gr-7jP" secondAttribute="centerX" id="Wa3-xJ-3HD"/>
+                                    <constraint firstItem="G2L-TY-AdT" firstAttribute="width" secondItem="dP4-gr-7jP" secondAttribute="width" multiplier="0.2" id="Z0k-9L-X9G"/>
+                                    <constraint firstItem="fwE-DZ-dYp" firstAttribute="centerY" secondItem="dP4-gr-7jP" secondAttribute="centerY" id="ZNN-xF-qND"/>
+                                    <constraint firstItem="fwE-DZ-dYp" firstAttribute="width" secondItem="dP4-gr-7jP" secondAttribute="width" multiplier="0.8" id="a4Y-BT-ugj"/>
+                                    <constraint firstItem="G2L-TY-AdT" firstAttribute="centerY" secondItem="dP4-gr-7jP" secondAttribute="centerY" id="clC-tB-sb5"/>
+                                    <constraint firstItem="Hyh-GN-BYr" firstAttribute="centerX" secondItem="fwE-DZ-dYp" secondAttribute="centerX" id="iDJ-TX-3OK"/>
+                                    <constraint firstItem="G2L-TY-AdT" firstAttribute="height" secondItem="dP4-gr-7jP" secondAttribute="width" multiplier="0.2" id="u9o-Sc-RZV" userLabel="Header Button.height = 0.5 × width"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dP4-gr-7jP" firstAttribute="centerY" secondItem="cMG-2x-JSH" secondAttribute="centerY" id="AgV-Ol-TFn"/>
+                            <constraint firstItem="dP4-gr-7jP" firstAttribute="leading" secondItem="Oar-63-Yf8" secondAttribute="leading" id="BGh-dI-yEe"/>
+                            <constraint firstItem="dP4-gr-7jP" firstAttribute="centerX" secondItem="cMG-2x-JSH" secondAttribute="centerX" id="OSi-Ym-ZpF"/>
+                            <constraint firstItem="dP4-gr-7jP" firstAttribute="top" secondItem="cMG-2x-JSH" secondAttribute="top" id="VEc-iH-cL7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Oar-63-Yf8"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="dP4-gr-7jP" id="tif-bC-AbF"/>
+                        <outlet property="closeButton" destination="Hyh-GN-BYr" id="TBg-D6-fMk"/>
+                        <outlet property="dialogView" destination="fwE-DZ-dYp" id="Sj0-jB-6ff"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KrX-Lx-CHT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
+        </scene>
+    </scenes>
+</document>

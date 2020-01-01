@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ContainerViewControllerSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hth-Le-Wjy">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="djv-nL-ncW">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpc-5N-zbB">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
+                                                <state key="normal" title="Button1">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="touchButton1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xgt-qz-yr8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvf-r4-4Wq">
+                                                <rect key="frame" x="207" y="0.0" width="207" height="60"/>
+                                                <state key="normal" title="Button2">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="touchButton2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3z9-1f-Gnd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.012459146790206432" green="0.56262087821960449" blue="0.98201984167098999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="djv-nL-ncW" firstAttribute="leading" secondItem="Hth-Le-Wjy" secondAttribute="leading" id="16j-rK-GLe"/>
+                                    <constraint firstItem="djv-nL-ncW" firstAttribute="height" secondItem="Hth-Le-Wjy" secondAttribute="height" id="IhY-iE-qyK"/>
+                                    <constraint firstItem="djv-nL-ncW" firstAttribute="top" secondItem="Hth-Le-Wjy" secondAttribute="top" id="JNh-ho-8S5"/>
+                                    <constraint firstItem="djv-nL-ncW" firstAttribute="centerX" secondItem="Hth-Le-Wjy" secondAttribute="centerX" id="JUs-rA-d9q"/>
+                                    <constraint firstAttribute="height" constant="60" id="c0g-4k-KWp"/>
+                                    <constraint firstItem="djv-nL-ncW" firstAttribute="centerY" secondItem="Hth-Le-Wjy" secondAttribute="centerY" id="xiA-Z3-JkG"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bew-65-XPD">
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hth-Le-Wjy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0dS-iw-ALC"/>
+                            <constraint firstItem="Hth-Le-Wjy" firstAttribute="trailing" secondItem="bew-65-XPD" secondAttribute="trailing" id="2rF-K9-YoL"/>
+                            <constraint firstItem="bew-65-XPD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4uO-eT-XHl"/>
+                            <constraint firstItem="Hth-Le-Wjy" firstAttribute="leading" secondItem="bew-65-XPD" secondAttribute="leading" id="LGB-qU-ueo"/>
+                            <constraint firstItem="Hth-Le-Wjy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bmc-Jy-oDe"/>
+                            <constraint firstItem="Hth-Le-Wjy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dDP-JS-1oe"/>
+                            <constraint firstItem="bew-65-XPD" firstAttribute="top" secondItem="Hth-Le-Wjy" secondAttribute="bottom" id="qJe-PW-K9a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="button1" destination="cpc-5N-zbB" id="cOI-Uy-7b4"/>
+                        <outlet property="button2" destination="yvf-r4-4Wq" id="3G5-Vz-yqV"/>
+                        <outlet property="headerView" destination="Hth-Le-Wjy" id="3To-sV-VyA"/>
+                        <outlet property="myContainerView" destination="bew-65-XPD" id="9LC-QZ-JL3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
+        </scene>
+    </scenes>
+</document>
