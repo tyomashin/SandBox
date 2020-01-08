@@ -21,6 +21,7 @@
 		7BABC6D723C4DD5100A5FFFA /* NavConVC1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BABC6D623C4DD5100A5FFFA /* NavConVC1.storyboard */; };
 		7BABC6D923C4DE6400A5FFFA /* NavConVC2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BABC6D823C4DE6400A5FFFA /* NavConVC2.storyboard */; };
 		7BABC6DB23C4DFD200A5FFFA /* NavConVC3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BABC6DA23C4DFD200A5FFFA /* NavConVC3.storyboard */; };
+		7BABC6DF23C6350F00A5FFFA /* TmpNavCon2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BABC6DE23C6350F00A5FFFA /* TmpNavCon2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		7BABC6D623C4DD5100A5FFFA /* NavConVC1.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavConVC1.storyboard; sourceTree = "<group>"; };
 		7BABC6D823C4DE6400A5FFFA /* NavConVC2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavConVC2.storyboard; sourceTree = "<group>"; };
 		7BABC6DA23C4DFD200A5FFFA /* NavConVC3.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavConVC3.storyboard; sourceTree = "<group>"; };
+		7BABC6DE23C6350F00A5FFFA /* TmpNavCon2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmpNavCon2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				7BABC6D623C4DD5100A5FFFA /* NavConVC1.storyboard */,
 				7BABC6D823C4DE6400A5FFFA /* NavConVC2.storyboard */,
 				7BABC6DA23C4DFD200A5FFFA /* NavConVC3.storyboard */,
+				7BABC6DE23C6350F00A5FFFA /* TmpNavCon2.swift */,
 			);
 			path = NavigationControllerSample;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				7BABC6D523C4D9D800A5FFFA /* NavConVC3.swift in Sources */,
 				7BABC6D123C4D96000A5FFFA /* NavConVC1.swift in Sources */,
 				7BABC6D323C4D9D000A5FFFA /* NavConVC2.swift in Sources */,
+				7BABC6DF23C6350F00A5FFFA /* TmpNavCon2.swift in Sources */,
 				7BABC6A123C4D7E000A5FFFA /* AppDelegate.swift in Sources */,
 				7BABC6A323C4D7E000A5FFFA /* SceneDelegate.swift in Sources */,
 			);
