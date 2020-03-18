@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TWr-Z8-Glk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Custom Dialog Image And Gradation-->
+        <scene sceneID="mZN-oW-qLB">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="TWr-Z8-Glk" customClass="CustomDialogImageAndGradation" customModule="AlertDialogSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dVA-3x-I1v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cz4-CX-aIR" userLabel="DialogView">
+                                <rect key="frame" x="62" y="291.5" width="290" height="323.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ze-Zy-Wqd" userLabel="TitleLabel">
+                                        <rect key="frame" x="20" y="20" width="250" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XOh-b5-d0T">
+                                        <rect key="frame" x="95" y="74.5" width="100" height="81"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="750" constant="100" id="Iyc-dg-0g2"/>
+                                            <constraint firstAttribute="height" constant="80" id="hW4-20-M6d"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0i-6q-8eR" userLabel="MessageLabel">
+                                        <rect key="frame" x="20" y="185.5" width="250" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="c0D-iS-qkc">
+                                        <rect key="frame" x="20" y="223.5" width="250" height="80"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rd2-35-h3g" customClass="GDButton" customModule="AlertDialogSample" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="35"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                        <color key="value" red="0.97647058823529409" green="0.76078431372549016" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="tapPositiveButton:" destination="TWr-Z8-Glk" eventType="touchUpInside" id="prk-ku-sHc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEp-0K-5Ne">
+                                                <rect key="frame" x="0.0" y="45" width="250" height="35"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <connections>
+                                                    <action selector="tapNegativeButton:" destination="TWr-Z8-Glk" eventType="touchUpInside" id="knW-8W-cBQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="rFZ-Ee-3Zh"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="j0i-6q-8eR" firstAttribute="leading" secondItem="Cz4-CX-aIR" secondAttribute="leading" constant="20" id="2M5-id-OQS"/>
+                                    <constraint firstItem="2Ze-Zy-Wqd" firstAttribute="top" secondItem="Cz4-CX-aIR" secondAttribute="top" constant="20" id="AjI-qC-6VJ"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="GKF-TI-UKC"/>
+                                    <constraint firstItem="XOh-b5-d0T" firstAttribute="top" secondItem="2Ze-Zy-Wqd" secondAttribute="bottom" constant="30" id="My9-sH-0Ti"/>
+                                    <constraint firstItem="c0D-iS-qkc" firstAttribute="leading" secondItem="Cz4-CX-aIR" secondAttribute="leading" constant="20" id="NXO-Qb-cvz"/>
+                                    <constraint firstItem="XOh-b5-d0T" firstAttribute="centerX" secondItem="Cz4-CX-aIR" secondAttribute="centerX" id="OwD-4d-oTG"/>
+                                    <constraint firstAttribute="bottom" secondItem="c0D-iS-qkc" secondAttribute="bottom" constant="20" id="UdQ-4P-xN5"/>
+                                    <constraint firstItem="c0D-iS-qkc" firstAttribute="top" secondItem="j0i-6q-8eR" secondAttribute="bottom" constant="20" id="W6b-T1-1OT"/>
+                                    <constraint firstAttribute="trailing" secondItem="c0D-iS-qkc" secondAttribute="trailing" constant="20" id="W84-q4-wsF"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Ze-Zy-Wqd" secondAttribute="trailing" constant="20" id="ZNT-fg-1c4"/>
+                                    <constraint firstItem="XOh-b5-d0T" firstAttribute="width" relation="lessThanOrEqual" secondItem="Cz4-CX-aIR" secondAttribute="width" multiplier="0.8" id="aPK-qo-dQw"/>
+                                    <constraint firstItem="2Ze-Zy-Wqd" firstAttribute="leading" secondItem="Cz4-CX-aIR" secondAttribute="leading" constant="20" id="d3t-2N-h7p"/>
+                                    <constraint firstItem="j0i-6q-8eR" firstAttribute="top" secondItem="XOh-b5-d0T" secondAttribute="bottom" constant="30" id="lE4-0u-De8"/>
+                                    <constraint firstAttribute="trailing" secondItem="j0i-6q-8eR" secondAttribute="trailing" constant="20" id="y83-rs-LKw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Cz4-CX-aIR" firstAttribute="centerX" secondItem="8fH-jK-88j" secondAttribute="centerX" id="8au-Sq-Qld"/>
+                            <constraint firstItem="Cz4-CX-aIR" firstAttribute="width" secondItem="dVA-3x-I1v" secondAttribute="width" multiplier="0.7" id="LH0-ti-Ctp"/>
+                            <constraint firstItem="Cz4-CX-aIR" firstAttribute="centerY" secondItem="8fH-jK-88j" secondAttribute="centerY" id="Ri2-M1-ijF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8fH-jK-88j"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonAreaView" destination="c0D-iS-qkc" id="v4N-Jt-dAh"/>
+                        <outlet property="buttonAreaViewHeightConstraint" destination="rFZ-Ee-3Zh" id="K9j-0q-oFa"/>
+                        <outlet property="dialogView" destination="Cz4-CX-aIR" id="y4P-xt-LAR"/>
+                        <outlet property="mainImageView" destination="XOh-b5-d0T" id="lXO-2h-qLl"/>
+                        <outlet property="mainImageViewHeightConstraint" destination="hW4-20-M6d" id="Lrb-t2-7Sg"/>
+                        <outlet property="mainImageViewWidthConstraint" destination="Iyc-dg-0g2" id="AVl-LD-NTi"/>
+                        <outlet property="messageLabel" destination="j0i-6q-8eR" id="H3P-vu-8Zm"/>
+                        <outlet property="negativeButton" destination="uEp-0K-5Ne" id="fIu-RK-xyl"/>
+                        <outlet property="positiveButton" destination="Rd2-35-h3g" id="xhH-5U-S7L"/>
+                        <outlet property="titleLabel" destination="2Ze-Zy-Wqd" id="FBM-BP-PPH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBS-H2-fIy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-70" y="47"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
+    </resources>
+</document>

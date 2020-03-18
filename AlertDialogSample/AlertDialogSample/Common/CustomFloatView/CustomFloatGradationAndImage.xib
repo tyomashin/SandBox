@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansJP-Bold.otf">
+            <string>NotoSansJP-Bold</string>
+        </array>
+        <array key="NotoSansJP-Regular.otf">
+            <string>NotoSansJP-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomFloatGradationAndImage" customModule="AlertDialogSample" customModuleProvider="target">
+            <connections>
+                <outlet property="baseView" destination="iN0-l3-epB" id="SSl-iM-Gau"/>
+                <outlet property="contentView" destination="1kG-KF-NSH" id="WRR-Bn-JtH"/>
+                <outlet property="imageView" destination="Dqf-tN-4gO" id="n97-9D-2B7"/>
+                <outlet property="messageLabel" destination="mh4-cF-1Tr" id="ZgU-0X-IQ2"/>
+                <outlet property="titleLabel" destination="RQf-2a-hLo" id="cD9-uF-EBd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="524" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kG-KF-NSH" userLabel="ContentView" customClass="GDView" customModule="AlertDialogSample" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="524" height="150"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dqf-tN-4gO">
+                            <rect key="frame" x="20" y="26.5" width="97.5" height="97.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Dqf-tN-4gO" secondAttribute="height" multiplier="1:1" id="dJn-iq-22c"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQf-2a-hLo" userLabel="TitleLabel">
+                            <rect key="frame" x="137.5" y="10" width="366.5" height="25.5"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mh4-cF-1Tr" userLabel="MessageLabel">
+                            <rect key="frame" x="137.5" y="40.5" width="366.5" height="19.5"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="RQf-2a-hLo" secondAttribute="trailing" constant="20" id="Hha-yc-9sX"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mh4-cF-1Tr" secondAttribute="bottom" constant="10" id="IrT-cW-gC9"/>
+                        <constraint firstItem="mh4-cF-1Tr" firstAttribute="leading" secondItem="Dqf-tN-4gO" secondAttribute="trailing" constant="20" id="Lga-k3-b9S"/>
+                        <constraint firstAttribute="top" secondItem="RQf-2a-hLo" secondAttribute="top" constant="-10" id="SLV-yb-x93"/>
+                        <constraint firstItem="Dqf-tN-4gO" firstAttribute="centerY" secondItem="1kG-KF-NSH" secondAttribute="centerY" id="V3L-0g-bwF"/>
+                        <constraint firstAttribute="trailing" secondItem="mh4-cF-1Tr" secondAttribute="trailing" constant="20" id="tXO-Y6-Rnv"/>
+                        <constraint firstItem="Dqf-tN-4gO" firstAttribute="height" secondItem="1kG-KF-NSH" secondAttribute="height" multiplier="0.65" id="ueK-KB-ccJ"/>
+                        <constraint firstItem="RQf-2a-hLo" firstAttribute="leading" secondItem="Dqf-tN-4gO" secondAttribute="trailing" constant="20" id="whj-LG-9G9"/>
+                        <constraint firstItem="mh4-cF-1Tr" firstAttribute="top" secondItem="RQf-2a-hLo" secondAttribute="bottom" constant="5" id="yIG-DF-n3u"/>
+                        <constraint firstItem="Dqf-tN-4gO" firstAttribute="leading" secondItem="1kG-KF-NSH" secondAttribute="leading" constant="20" id="zXv-Ay-Yiw"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                            <color key="value" red="0.97647058819999999" green="0.76078431369999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="1kG-KF-NSH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3rJ-L6-eOV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1kG-KF-NSH" secondAttribute="trailing" id="B75-q5-XJh"/>
+                <constraint firstItem="1kG-KF-NSH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Mo1-wf-kO3"/>
+                <constraint firstAttribute="bottom" secondItem="1kG-KF-NSH" secondAttribute="bottom" id="u7T-2v-B15"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="102.89855072463769" y="173.77232142857142"/>
+        </view>
+    </objects>
+</document>

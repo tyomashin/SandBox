@@ -37,5 +37,28 @@ class ViewController: UIViewController {
                                                  completer: nil)
         AlertManager.showCustomAlertController(vc: self, alertModel: alertModel)
     }
+    
+    /// カスタムダイアログを表示する
+    @IBAction func tapCustomDialogButton(_ sender: Any) {
+        let dialogModel = CustomDialogManager.DialogModel(title: "title test",
+                                                          message: "hogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehoge",
+                                                          dialogButtonType: .PositiveActionOnly,
+                                                          dialogStyle: .ImageAndGradationDialog,
+                                                          titleColor: .accentColor,
+                                                          gradationColorStart: .orangeGradationStart,
+                                                          gradationColorEnd: .orangeGradationEnd)
+        CustomDialogManager.showCustomDialog(vc: self, dialogModel: dialogModel)
+    }
+    
+    @IBAction func taoCustomFloat(_ sender: Any) {
+        let floatModel = CustomFloatManager.FloatModel(title: "title",
+                                                       message: "hogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogekkkkkkkkkkkkkkkkkkkkkkk",
+                                                       icon: UIImage(named: "iconmonstr-school-26-240"),
+                                                       backgroundColorStart: .orangeGradationStart,
+                                                       backgroundColorEnd: .orangeGradationEnd,
+                                                       aliveTime: 3)
+        CustomFloatManager.showFloatMessage(vc: self, type: .GradationAndImage, model: floatModel)
+    }
+    
 }
 

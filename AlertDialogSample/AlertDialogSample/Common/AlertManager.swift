@@ -57,7 +57,6 @@ class AlertManager{
         vc.present(alert, animated: true, completion: nil)
     }
 
-
     /// AlertContollerに似せたカスタムViewを表示する
     static func showCustomAlertController(vc : ViewController,
                                           alertModel : AlertModel){
@@ -65,11 +64,6 @@ class AlertManager{
         guard let alert = storyBoard.instantiateInitialViewController() as? CustomAlertControllerViewController else {
             return
         }
-        let alertModel = AlertManager.AlertModel(title: "",
-                                                 message: "aaa",
-                                                 type: .PositiveAndNegativeAction,
-                                                 tintColor: .orange,
-                                                 completer: nil)
         // ふわっと表示
         vc.modalTransitionStyle = .crossDissolve
         // Viewの背景を透過させる

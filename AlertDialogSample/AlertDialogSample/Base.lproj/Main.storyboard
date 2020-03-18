@@ -19,17 +19,32 @@
                                 <rect key="frame" x="10" y="54" width="394" height="798"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbf-w6-EBd" userLabel="AlertControllerButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="399"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="199.5"/>
                                         <state key="normal" title="Alert Controller"/>
                                         <connections>
                                             <action selector="tapAlertControllerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eSB-d5-yzE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7d-CE-m17" userLabel="CustomAlertControllerButton">
-                                        <rect key="frame" x="0.0" y="399" width="394" height="399"/>
+                                        <rect key="frame" x="0.0" y="199.5" width="394" height="199.5"/>
                                         <state key="normal" title="Custom Alert Controller"/>
                                         <connections>
                                             <action selector="tapCustomAlertButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EeO-wi-WKy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xJe-yb-rjL" userLabel="CustomDialog">
+                                        <rect key="frame" x="0.0" y="399" width="394" height="199.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="CustomDialog"/>
+                                        <connections>
+                                            <action selector="tapCustomDialogButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TGG-L5-HAs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svh-Qq-GzY" userLabel="CustomFloat">
+                                        <rect key="frame" x="0.0" y="598.5" width="394" height="199.5"/>
+                                        <state key="normal" title="CustomFloat"/>
+                                        <connections>
+                                            <action selector="taoCustomFloat:" destination="BYZ-38-t0r" eventType="touchUpInside" id="348-If-t0C"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  AlertDialogSample
+
+  Created by 岡崎伸也 on 2020/02/02.
+  Copyright © 2020 岡崎伸也. All rights reserved.
+*/
+
+"ok_button"="OK";
+"cancel_button"="CANCEL";
