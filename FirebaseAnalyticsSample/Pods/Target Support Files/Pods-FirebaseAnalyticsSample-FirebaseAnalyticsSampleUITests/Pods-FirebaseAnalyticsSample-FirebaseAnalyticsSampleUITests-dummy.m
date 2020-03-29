@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_FirebaseAnalyticsSample_FirebaseAnalyticsSampleUITests : NSObject
+@end
+@implementation PodsDummy_Pods_FirebaseAnalyticsSample_FirebaseAnalyticsSampleUITests
+@end
