@@ -1,0 +1,6 @@
+framework module Pods_TestCodeSample {
+  umbrella header "Pods-TestCodeSample-umbrella.h"
+
+  export *
+  module * { export * }
+}

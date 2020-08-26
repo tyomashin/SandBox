@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'TestCodeSample' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod "Alamofire"
+  pod "Mockingjay", '3.0.0-alpha.1'
+
+  # Pods for AlamofireSample
+
+  target 'TestCodeSampleTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod "Alamofire"
+    pod "Mockingjay", '3.0.0-alpha.1'
+  end
+
+  target 'TestCodeSampleUITests' do
+    # Pods for testing
+  end
+
+end
