@@ -81,6 +81,12 @@ print(sampleStr)  // 5459FFFF
 sampleStr = data.map{ String(format: "%02x", $0) }.joined()
 print(sampleStr) // 5459ffff
 
+// 0埋め
+while byteArray.count < 20{
+    byteArray.insert(0x00, at: 0)
+}
+print(byteArray.count, byteArray)  // 20 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 84, 89, 255, 255]
+
 var uint32: UInt32 = 0x100000
 print(uint32)  // 1048576
 var uint32Str = String(format: "%02X", uint32)
