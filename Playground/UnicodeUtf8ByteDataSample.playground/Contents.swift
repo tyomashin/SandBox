@@ -61,6 +61,43 @@ print(hogeData)  // 20 bytes
 hogeByteArray = Array(hogeData)
 print(hogeByteArray, hogeByteArray.count) // [48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48] 20
 
-// TODO: 16進文字列を[Uint8]配列に変換する方法
+// 16進文字列を[Uint8]配列に変換する方法(memo: 16進文字列2桁 == 1 byte(UInt8 1桁))
 // -> 16進文字列を2つずつ繰り返すUInt8配列に変換する。
 // https://stackoverflow.com/questions/43360747/how-to-convert-hexadecimal-string-to-an-array-of-uint8-bytes-in-swift
+
+// --------
+var byteArray: [UInt8] = [0x54, 0x59, 0xff, 0xff]
+
+var data = Data(byteArray)
+print(data)  // 4 bytes
+
+var sampleStr = data.map{ String(format: "%08X", $0) }.joined()
+print(sampleStr)  // 0000005400000059000000FF000000FF
+sampleStr = data.map{ String(format: "%08x", $0) }.joined()
+print(sampleStr)  // 0000005400000059000000ff000000ff
+
+sampleStr = data.map{ String(format: "%02X", $0) }.joined()
+print(sampleStr)  // 5459FFFF
+sampleStr = data.map{ String(format: "%02x", $0) }.joined()
+print(sampleStr) // 5459ffff
+
+var uint32: UInt32 = 0x100000
+print(uint32)  // 1048576
+var uint32Str = String(format: "%02X", uint32)
+print(uint32Str) // 100000
+
+var hogeDataArray = Array(data)
+//var hogehogeDataArray = [hogeDataArray[2], hogeDataArray[3]]
+
+
+var hogehogeDataArray: [UInt8] = [0x00, 0xff]
+var hoge = hogehogeDataArray.withUnsafeBytes{ $0.load(as: UInt16.self) }
+print(hoge) // 65280
+print(Int(hoge.bigEndian)) // 255
+print(hoge.bigEndian) // 255
+print(hoge.littleEndian) // 65280
+
+var int32: Int32 = 0x300
+print(int32, int32.littleEndian, int32.bigEndian, int32 == 0x300)  // 768 768 196608 true
+
+
