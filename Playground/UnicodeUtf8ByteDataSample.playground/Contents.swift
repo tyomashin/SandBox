@@ -65,6 +65,23 @@ print(hogeByteArray, hogeByteArray.count) // [48, 48, 48, 48, 48, 48, 48, 48, 48
 // -> 16進文字列を2つずつ繰り返すUInt8配列に変換する。
 // https://stackoverflow.com/questions/43360747/how-to-convert-hexadecimal-string-to-an-array-of-uint8-bytes-in-swift
 
+extension StringProtocol {
+    var hexaData: Data { .init(hexa) }
+    var hexaBytes: [UInt8] { .init(hexa) }
+    private var hexa: UnfoldSequence<UInt8, Index> {
+        sequence(state: startIndex) { startIndex in
+            guard startIndex < self.endIndex else { return nil }
+            let endIndex = self.index(startIndex, offsetBy: 2, limitedBy: self.endIndex) ?? self.endIndex
+            defer { startIndex = endIndex }
+            return UInt8(self[startIndex..<endIndex], radix: 16)
+        }
+    }
+}
+
+var mmm = "070809FFF"
+var mmmData = mmm.data(using: .utf8)
+print(mmmData, mmm.count, mmm.hexaData, mmm.hexaBytes)
+
 // --------
 var byteArray: [UInt8] = [0x54, 0x59, 0xff, 0xff]
 
