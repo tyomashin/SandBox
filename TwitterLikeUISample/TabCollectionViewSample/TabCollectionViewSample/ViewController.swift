@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private let TABLE_VIEW_OFFSET: CGFloat = 200
 
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var tabView: TabView!
@@ -21,6 +22,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //tableView.contentOffset.y = TABLE_VIEW_OFFSET
+        currentOffsetY = -TABLE_VIEW_OFFSET
+        tableView.contentInset = UIEdgeInsets(top: TABLE_VIEW_OFFSET, left: 0, bottom: 0, right: 0)
+        //currentOffsetY = 0
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -29,10 +35,9 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffset = scrollView.contentOffset.y
-        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-
-        print("hoge!", contentOffset, maximumOffset)
         
+        print("hoge!", contentOffset)
+
         // 上方向スクロール
         if currentOffsetY - contentOffset < 0{
             print("up")
