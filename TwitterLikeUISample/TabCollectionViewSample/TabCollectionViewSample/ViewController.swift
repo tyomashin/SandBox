@@ -23,6 +23,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.view.backgroundColor = .systemYellow
+        
         currentOffsetForDirection = -TABLE_VIEW_OFFSET
         tableView.contentInset = UIEdgeInsets(top: TABLE_VIEW_OFFSET, left: 0, bottom: 0, right: 0)
         
@@ -45,8 +47,13 @@ extension ViewController: UITableViewDelegate{
             print("up", contentOffset, -TABLE_VIEW_OFFSET)
             // ヘッダーViewがまだ見えている場合：ヘッダーをさらに隠すように移動させる
             if topViewTopConstraints.constant > -100{
+                // topViewTopConstraintsに、-100よりも小さい値が入らないように制御
                 let diff = contentOffset - currentOffsetForDirection
-                topViewTopConstraints.constant -= diff
+                var newConstant = topViewTopConstraints.constant - diff
+                if newConstant < -100{
+                    newConstant = -100
+                }
+                topViewTopConstraints.constant = newConstant
                 print("come!!!")
             }
             // ヘッダーViewが見えなくなった場合：その位置で固定する
@@ -64,8 +71,13 @@ extension ViewController: UITableViewDelegate{
                 //contentOffset = TABLE_VIEW_OFFSET
                 // ヘッダーViewがまだ下へ移動する余地がある場合
                 if topViewTopConstraints.constant < 0{
+                    // topViewTopConstraintsに、0よりも大きい値が入らないように制御
                     let diff = contentOffset - currentOffsetForDirection
-                    topViewTopConstraints.constant -= diff
+                    var newConstant = topViewTopConstraints.constant - diff
+                    if newConstant > 0{
+                        newConstant = 0
+                    }
+                    topViewTopConstraints.constant = newConstant
                 }
                 // ヘッダーViewが下へ移動できない場合：その位置で固定する
                 else{
