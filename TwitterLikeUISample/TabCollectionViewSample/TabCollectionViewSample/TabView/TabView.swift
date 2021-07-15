@@ -11,6 +11,12 @@ class TabView: UIView {
 
     @IBOutlet var baseView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var underView: UIView!
+    @IBOutlet weak var underViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var underViewLeadingConstraint: NSLayoutConstraint!
+    
+    let MIN_CELL_WIDTH: CGFloat = 100
+    var selectedItem = 0
     
     /// コードからの初期化時に呼ばれる
     override init(frame: CGRect) {
@@ -34,12 +40,31 @@ class TabView: UIView {
                                 forCellWithReuseIdentifier: "CustomCollectionViewCell")
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
     }
 
 }
 
-extension TabView: UICollectionViewDelegate{
+extension TabView: UICollectionViewDelegateFlowLayout{
     // func collectionnumber
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        print("collectionViewLayout", selectedItem)
+        let height = collectionView.frame.height * 0.8
+        //let width = max(self.frame.width * 0.2, MIN_CELL_WIDTH)
+        let width = collectionView.frame.width * 0.25
+        print(width, self.frame, collectionView.frame)
+        
+        if indexPath.row == selectedItem{
+            underViewWidthConstraint.constant = width
+        }
+        
+        return CGSize(width: width, height: height)
+    }
 }
 
 extension TabView: UICollectionViewDataSource{
@@ -51,10 +76,25 @@ extension TabView: UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath)
 
         if let cell = cell as? CustomCollectionViewCell {
-            //cell.setupCell(model: models[indexPath.row])
+            if indexPath.row == selectedItem{
+                cell.label.textColor = .orange
+                self.underViewLeadingConstraint.constant = cell.frame.origin.x
+                UIView.animate(withDuration: 0.1){
+                    self.layoutIfNeeded()
+                }
+            }else{
+                cell.label.textColor = .gray
+            }
         }
-        
+        print("cellForItemAt", cell.frame, cell.center)
 
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedItem = indexPath.row
+        print("didSelectItemAt", selectedItem)
+        collectionView.reloadData()
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 }

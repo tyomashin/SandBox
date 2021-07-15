@@ -37,14 +37,14 @@ extension ViewController: UITableViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         var contentOffset = scrollView.contentOffset.y
         
-        print("hoge, offset!", contentOffset, currentOffsetForDirection)
+        //print("hoge, offset!", contentOffset, currentOffsetForDirection)
         let diff = contentOffset - currentOffsetForDirection
-        print("hoge!, diff", diff)
+        //print("hoge!, diff", diff)
 
         
         // 上方向スクロール
         if currentOffsetForDirection - contentOffset < 0, contentOffset > -TABLE_VIEW_OFFSET{
-            print("up", contentOffset, -TABLE_VIEW_OFFSET)
+            //print("up", contentOffset, -TABLE_VIEW_OFFSET)
             // ヘッダーViewがまだ見えている場合：ヘッダーをさらに隠すように移動させる
             if topViewTopConstraints.constant > -100{
                 // topViewTopConstraintsに、-100よりも小さい値が入らないように制御
@@ -54,7 +54,7 @@ extension ViewController: UITableViewDelegate{
                     newConstant = -100
                 }
                 topViewTopConstraints.constant = newConstant
-                print("come!!!")
+                //print("come!!!")
             }
             // ヘッダーViewが見えなくなった場合：その位置で固定する
             else{
@@ -63,11 +63,11 @@ extension ViewController: UITableViewDelegate{
         }
         // 下方向スクロール
         else {
-            print("down")
+            //print("down")
             // TableViewの一番上のセルが見えている場合
             // TODO: ヘッダーの高さを考慮する（ヘッダーが全部隠れている場合は、contentOffset == -100 の時にヘッダーの高さも移動させなければならない）
             if contentOffset <= (-TABLE_VIEW_OFFSET - topViewTopConstraints.constant){
-                print("hoge!!!!", (-TABLE_VIEW_OFFSET - topViewTopConstraints.constant))
+                //print("hoge!!!!", (-TABLE_VIEW_OFFSET - topViewTopConstraints.constant))
                 //contentOffset = TABLE_VIEW_OFFSET
                 // ヘッダーViewがまだ下へ移動する余地がある場合
                 if topViewTopConstraints.constant < 0{
