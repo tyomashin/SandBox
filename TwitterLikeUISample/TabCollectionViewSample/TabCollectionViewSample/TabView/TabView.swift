@@ -11,9 +11,9 @@ class TabView: UIView {
 
     @IBOutlet var baseView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var underView: UIView!
-    @IBOutlet weak var underViewWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var underViewLeadingConstraint: NSLayoutConstraint!
+    
+    var underView = UIView()
+    var underViewWidthConstraint = NSLayoutConstraint()
     
     let MIN_CELL_WIDTH: CGFloat = 100
     var selectedItem = 0
@@ -41,7 +41,18 @@ class TabView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        underView = UIView()
+        underView.backgroundColor = .black
+        collectionView.addSubview(underView)
+        underView.translatesAutoresizingMaskIntoConstraints = false
         
+        underView.heightAnchor.constraint(equalToConstant: 5).isActive = true
+        underViewWidthConstraint = underView.widthAnchor.constraint(equalToConstant: 100)
+        underViewWidthConstraint.isActive = true
+        underView.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor).isActive = true
+        underView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
+        
+        collectionView.bringSubviewToFront(underView)
     }
 
 }
@@ -56,7 +67,8 @@ extension TabView: UICollectionViewDelegateFlowLayout{
         print("collectionViewLayout", selectedItem)
         let height = collectionView.frame.height * 0.8
         //let width = max(self.frame.width * 0.2, MIN_CELL_WIDTH)
-        let width = collectionView.frame.width * 0.25
+        // let width = collectionView.frame.width * 0.25
+        let width = collectionView.frame.width * 0.4
         print(width, self.frame, collectionView.frame)
         
         if indexPath.row == selectedItem{
@@ -64,6 +76,11 @@ extension TabView: UICollectionViewDelegateFlowLayout{
         }
         
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        print("hoge!!!!!!!!!!!")
+        return .zero
     }
 }
 
@@ -75,10 +92,12 @@ extension TabView: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath)
 
+        let hoge = collectionView.convert(cell.frame, to: self)
+        
         if let cell = cell as? CustomCollectionViewCell {
             if indexPath.row == selectedItem{
                 cell.label.textColor = .orange
-                self.underViewLeadingConstraint.constant = cell.frame.origin.x
+                underViewWidthConstraint.constant = cell.frame.origin.x
                 UIView.animate(withDuration: 0.1){
                     self.layoutIfNeeded()
                 }
@@ -86,15 +105,16 @@ extension TabView: UICollectionViewDataSource{
                 cell.label.textColor = .gray
             }
         }
-        print("cellForItemAt", cell.frame, cell.center)
+        print("cellForItemAt", cell.frame, cell.center, hoge)
 
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedItem = indexPath.row
         print("didSelectItemAt", selectedItem)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         collectionView.reloadData()
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 }
