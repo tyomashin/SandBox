@@ -1,0 +1,6 @@
+framework module Pods_BindingWithRxSwift {
+  umbrella header "Pods-BindingWithRxSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
