@@ -21,12 +21,12 @@ struct MainViewModelOutput{
     var notification: Driver<String?>
 }
 
-/* input */
+/* input（View -> ViewModel） */
 // memo: 「View側のイベントをViewModel側で受け取る」という用途は実現できている
-// memo: デメリット（懸念点）として、ViewModel側からもイベントを流せてしまう。（普通の使い方をしていれば起こり得ないが、設計上は可能な操作となってしまっている）
+// memo: デメリットとして、ViewModel側でストリームを作っているのでそれに対してイベントを流せてしまう。（普通の使い方をしていれば起こり得ないが、設計上は可能な操作となってしまっている）
+// memo: -> このデメリットを解消するためには、ViewModel 側で View への参照（依存性逆転の法則によりプロトコルへの依存）を持つ必要がある。-> SecondViewModel 側で実装確認
 struct MainViewModelInput{
     // memo: Relayからストリーム初期化
-    // memo: 変数名の先頭に「_」をつけることでこの変数は不使用であることを表す（慣習的な書き方）
     // memo: デメリット：やろうと思えばView側からもViewModel側からもイベントを流せてしまう
     let tapButtonRelay = PublishRelay<Void>()
     let inputTextRelay: BehaviorRelay<String?>
@@ -38,7 +38,8 @@ struct MainViewModelInput{
 
 /* ViewModelの実装例 */
 // memo: ここではMVVMの依存関係を単一方向（View -> ViewModel）にするために、ViewModel内でViewへの参照を保持していない。
-// memo: ViewModel でViewのプロトコルへの参照を持たせる実装パターンもあり、その場合はSignalやDriverなどRxCocoaのクラスを使用した実装が可能になる（UI周りでエラーを吐かせない、というパターン）
+// memo: ViewModel でViewのプロトコルへの参照を持たせる実装パターンもあり、その場合はSignalやDriverなどRxCocoaのクラスを使用した実装が可能になる（ViewModel側でストリームを生成しなくて済むパターン）
+// memo: -> SecondViewModel で実装確認
 class MainViewModel: MainViewModelProtocol{
     
     /* Bidirectional（双方向バインディング） */

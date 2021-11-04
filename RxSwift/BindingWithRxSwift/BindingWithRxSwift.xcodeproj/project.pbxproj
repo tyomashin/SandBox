@@ -17,6 +17,9 @@
 		7B035CBC27311417005BAB90 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035CBB27311417005BAB90 /* MainViewModel.swift */; };
 		7B035CBF2731B203005BAB90 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035CBE2731B203005BAB90 /* TabBarController.swift */; };
 		7B035CC12731B3D3005BAB90 /* SecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035CC02731B3D2005BAB90 /* SecondViewModel.swift */; };
+		7B035CC427342435005BAB90 /* ThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035CC327342435005BAB90 /* ThirdViewModel.swift */; };
+		7B035CC72734245F005BAB90 /* Third.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B035CC62734245F005BAB90 /* Third.storyboard */; };
+		7B035CC927342474005BAB90 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B035CC827342474005BAB90 /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		7B035CBB27311417005BAB90 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		7B035CBE2731B203005BAB90 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7B035CC02731B3D2005BAB90 /* SecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewModel.swift; sourceTree = "<group>"; };
+		7B035CC327342435005BAB90 /* ThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewModel.swift; sourceTree = "<group>"; };
+		7B035CC62734245F005BAB90 /* Third.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Third.storyboard; sourceTree = "<group>"; };
+		7B035CC827342474005BAB90 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		8B4815630412EE11CB3783AA /* Pods-BindingWithRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BindingWithRxSwift.debug.xcconfig"; path = "Target Support Files/Pods-BindingWithRxSwift/Pods-BindingWithRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +98,7 @@
 		7B035CB8273113FC005BAB90 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B035CC52734244B005BAB90 /* Third */,
 				7B035CC22731B3D7005BAB90 /* Second */,
 				7B035CBD2731B1F5005BAB90 /* Main */,
 				7B035CBE2731B203005BAB90 /* TabBarController.swift */,
@@ -104,6 +111,7 @@
 			children = (
 				7B035CBB27311417005BAB90 /* MainViewModel.swift */,
 				7B035CC02731B3D2005BAB90 /* SecondViewModel.swift */,
+				7B035CC327342435005BAB90 /* ThirdViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -122,6 +130,15 @@
 			children = (
 			);
 			path = Second;
+			sourceTree = "<group>";
+		};
+		7B035CC52734244B005BAB90 /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				7B035CC62734245F005BAB90 /* Third.storyboard */,
+				7B035CC827342474005BAB90 /* ThirdViewController.swift */,
+			);
+			path = Third;
 			sourceTree = "<group>";
 		};
 		C12D1EE3EBBF9471FB20AD25 /* Frameworks */ = {
@@ -194,6 +211,7 @@
 			files = (
 				7B035CB12731100D005BAB90 /* LaunchScreen.storyboard in Resources */,
 				7B035CAE2731100D005BAB90 /* Assets.xcassets in Resources */,
+				7B035CC72734245F005BAB90 /* Third.storyboard in Resources */,
 				7B035CAC2731100B005BAB90 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,8 +268,10 @@
 				7B035CA92731100B005BAB90 /* ViewController.swift in Sources */,
 				7B035CA52731100B005BAB90 /* AppDelegate.swift in Sources */,
 				7B035CA72731100B005BAB90 /* SceneDelegate.swift in Sources */,
+				7B035CC427342435005BAB90 /* ThirdViewModel.swift in Sources */,
 				7B035CBF2731B203005BAB90 /* TabBarController.swift in Sources */,
 				7B035CC12731B3D3005BAB90 /* SecondViewModel.swift in Sources */,
+				7B035CC927342474005BAB90 /* ThirdViewController.swift in Sources */,
 				7B035CBC27311417005BAB90 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
