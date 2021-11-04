@@ -14,6 +14,14 @@ protocol MainViewModelProtocol{
     var input: MainViewModelInput{ get }
 }
 
+
+
+
+
+
+// TODO: 構造体ではなくProtocolを公開する（実装の詳細は隠すように努めること！！！）
+// ----------------------------------------------------------------------
+
 /* output (ViewModel -> View) */
 // memo: View側でイベントを流せないように制御できている
 struct MainViewModelOutput{
@@ -35,6 +43,11 @@ struct MainViewModelInput{
         self.inputTextRelay = BehaviorRelay<String?>(value: value)
     }
 }
+// ----------------------------------------------------------------------
+
+
+
+
 
 /* ViewModelの実装例 */
 // memo: ここではMVVMの依存関係を単一方向（View -> ViewModel）にするために、ViewModel内でViewへの参照を保持していない。
