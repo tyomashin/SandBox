@@ -22,7 +22,7 @@ class ThirdViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // 双方向バインディング
-        //(textField.rx.text <-> viewModel.textRelay).disposed(by: disposeBag)
+        (textField.rx.text <-> viewModel.textRelay).disposed(by: disposeBag)
         
         // この書き方だと双方向バインディングにはならない
         //textField.rx.text.bind(to: viewModel.textRelay).disposed(by: disposeBag)
