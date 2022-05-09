@@ -23,6 +23,7 @@ typedef struct
     float cornerRadius;
     vector_float2 center;
     vector_float2 rectSize;
+    
 } ShaderVertex;
 
 #endif /* ShaderTypes_h */
