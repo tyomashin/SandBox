@@ -7,6 +7,7 @@
 
 import Foundation
 import EventKit
+import Contacts
 
 extension EKCalendar {
     var appDebugString: String {
@@ -25,10 +26,14 @@ extension EKEvent {
         result += "title: \(self.title), \n"
         result += "location: \(self.location), \n"
         result += "timezone: \(self.timeZone), \n"
-        result += "url: \(self.url), \n"
+        result += "url: \(self.url?.absoluteString), \n"
         result += "notes: \(self.notes), \n"
+        result += "isAllDay: \(self.isAllDay), \n"
         result += "attendeesNum: \(self.attendees?.count), \n"
         result += "organizer: \(self.organizer), \n"
+        result += "occurrenceDate(繰り返しイベントの開始日時): \(self.occurrenceDate), \n"
+        result += "isDetached: \(self.isDetached), \n"
+        result += "status: \(self.status.appDebugString), \n"
         for tmp in self.attendees ?? [] {
             result += "attendee: \(tmp.appDebugString), \n"
         }
@@ -43,8 +48,26 @@ extension EKParticipant {
     var appDebugString: String {
         var result = ""
         result += "name: \(self.name), \n"
+        result += "contactPredicate: \(self.contactPredicate), \n"
         result += "isCurrentUser: \(self.isCurrentUser), \n"
         return result
+    }
+}
+
+extension EKEventStatus {
+    var appDebugString: String {
+        switch self {
+        case .none:
+            return "none"
+        case .confirmed:
+            return "comfirmed"
+        case .tentative:
+            return "tentative"
+        case .canceled:
+            return "canceled"
+        default:
+            return "unknown"
+        }
     }
 }
 

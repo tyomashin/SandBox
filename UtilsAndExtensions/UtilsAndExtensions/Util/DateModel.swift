@@ -1,8 +1,8 @@
 //
 //  DateModel.swift
-//  EventKitSample
+//  UtilsAndExtensions
 //
-//  Created by 岡崎伸也 on 2022/05/11.
+//  Created by 岡崎伸也 on 2022/05/18.
 //
 
 import Foundation
@@ -16,6 +16,7 @@ struct DateDetails{
     let sec: Int
 }
 
+/// 日時操作を行うクラス
 class DateModel: NSObject {
     static let shared = DateModel()
     static let dateTimePerDay = 60 * 60 * 24
