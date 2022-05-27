@@ -14,9 +14,13 @@ class TextImageCreater {
     
     func makeTextImage() -> UIImage {
         let str = randomString()
+        
+        // Note: 基本的にはテキスト画像は不透明（または固定）で作成する
+        // -> テキスト画像自体に透過度を設定すると、透過度が変更するたびにテキスト画像を再作成しないといけないため
+        // -> テキスト画像を透過させて表示する場合、描画時にアルファブレンディングするなどする（ImageViewの場合はalphaパラメータを設定）
         let attrStr = NSMutableAttributedString(string: str, attributes: [
-            .font: UIFont.systemFont(ofSize: 10, weight: .regular),
-            .foregroundColor: UIColor.green
+            .font: UIFont.systemFont(ofSize: 10, weight: .bold),
+            .foregroundColor: UIColor(red: 1, green: 0, blue: 0, alpha: 1)
         ])
         textLayer.frame = .init(x: 0, y: 0, width: 100, height: 100)
         textLayer.backgroundColor = UIColor.clear.cgColor

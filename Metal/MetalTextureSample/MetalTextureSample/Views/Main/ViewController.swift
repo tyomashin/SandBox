@@ -10,10 +10,15 @@ import MetalKit
 
 class ViewController: UIViewController {
 
+    // テクスチャのアルファ値
+    let targetAlpha: Float = 1
+    
     let textImageCreater = TextImageCreater()
+    let textureCreator = TextureCreator()
     
     var metalLayer: CAMetalLayer!
     let imageView = UIImageView()
+    let textLayer = CATextLayer()
     
     var textureImage: UIImage!
     
@@ -45,12 +50,23 @@ class ViewController: UIViewController {
         
         initData()
         
-        texture = makeTexture(device: device)
+        // texture = makeTexture(device: device)
+        // texture = makeTextureFromAssets(device: device)
+        
+        let textImage = textImageCreater.makeTextImage()
+        self.textureImage = textImage
+        texture = textureCreator.makeTextureFromCGImage(device: device, cgImage: textImage.cgImage!)
         
         imageView.frame = .init(x: 10, y: 50, width: 100, height: 100)
         self.view.addSubview(imageView)
-        
         imageView.image = textureImage
+        imageView.alpha = CGFloat(targetAlpha)
+
+        textLayer.frame = .init(x: 10, y: 300, width: 100, height: 100)
+        self.view.layer.addSublayer(textLayer)
+        textLayer.string = "sample text"
+        textLayer.foregroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1).cgColor
+        textLayer.opacity = targetAlpha
     }
     
     private func initData() {
@@ -113,23 +129,23 @@ class ViewController: UIViewController {
         
         self.verticeArray += [
             ShaderVertex(
-                position: vector_float2(leftX, topY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(0.0, 0.0)
+                position: vector_float2(leftX, topY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(0.0, 0.0), targetAlpha: targetAlpha
             ),
             ShaderVertex(
-                position: vector_float2(leftX, bottomY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(0.0, 1.0)
+                position: vector_float2(leftX, bottomY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(0.0, 1.0), targetAlpha: targetAlpha
             ),
             ShaderVertex(
-                position: vector_float2(rightX, bottomY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(1.0, 1.0)
+                position: vector_float2(rightX, bottomY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(1.0, 1.0), targetAlpha: targetAlpha
             ),
             
             ShaderVertex(
-                position: vector_float2(leftX, topY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(0.0, 0.0)
+                position: vector_float2(leftX, topY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(0.0, 0.0), targetAlpha: targetAlpha
             ),
             ShaderVertex(
-                position: vector_float2(rightX, topY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(1.0, 0.0)
+                position: vector_float2(rightX, topY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(1.0, 0.0), targetAlpha: targetAlpha
             ),
             ShaderVertex(
-                position: vector_float2(rightX, bottomY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(1.0, 1.0)
+                position: vector_float2(rightX, bottomY), color: vector_float4(1, 1, 1, 1), textureCoordinate: vector_float2(1.0, 1.0), targetAlpha: targetAlpha
             )
         ]
     }
@@ -168,19 +184,48 @@ extension ViewController {
         pipelineStateDescriptor.fragmentFunction = fragmentProgram
         pipelineStateDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
         
-        // memmo: 以下のアルファチャネルを有効にすると、テキスト画像の背景が真っ黒になったりする問題がある
-        // -> テクスチャ描画時はこれを無効化しておく必要がありそう
-        // 透過度を有効にしているつもり
-        //pipelineStateDescriptor.isAlphaToOneEnabled = true
+        // デフォルト値：false
+        // -> 以下のパラメータは用途が不明なのでデフォルト値指定
+        pipelineStateDescriptor.isAlphaToOneEnabled = false
+        pipelineStateDescriptor.isAlphaToCoverageEnabled = false
+
+        // pipelineStateDescriptor.colorAttachments[0].isBlendingEnabled = false
         /*
+        // ブレンディング設定
+        // 一般的な式：Cf = As * Cs + (1 - As) * Cd
+        //    ・描画元（source）のRGB Color には、Source Alpha の係数をかける
+        //    ・描画先（destination）のRGB Color には、（1 - Source Alpha）の係数をかける
+        // 参考：https://metalbyexample.com/translucency-and-transparency/
         pipelineStateDescriptor.colorAttachments[0].isBlendingEnabled = true
+        // RGB, アルファそれぞれのブレンディング操作を選択する
+        // -> ここではデフォルト値（add）を指定
         pipelineStateDescriptor.colorAttachments[0].rgbBlendOperation = .add
         pipelineStateDescriptor.colorAttachments[0].alphaBlendOperation = .add
+        // 描画元（source）のRGB, アルファのブレンド係数を指定
         pipelineStateDescriptor.colorAttachments[0].sourceRGBBlendFactor = .sourceAlpha
         pipelineStateDescriptor.colorAttachments[0].sourceAlphaBlendFactor = .sourceAlpha
+        // 描画先（destination）のRGB、アルファのブレンド係数を指定
         pipelineStateDescriptor.colorAttachments[0].destinationRGBBlendFactor = .oneMinusSourceAlpha
         pipelineStateDescriptor.colorAttachments[0].destinationAlphaBlendFactor = .oneMinusSourceAlpha
         */
+        
+        // Note: CoreGraphics を使用して生成した画像をテクスチャとして描画する場合
+        //   -> すでにカラーチャンネルにはアルファ値が乗算されているらしい. この場合に sourceAlpha を使うと二重でアルファを乗算してしまうとのこと。
+        //       なので、以下のコードではsourceAlphaをoneにしている
+        // 参考：https://stackoverflow.com/questions/62091775/cgcontext-antialiasing-works-not-as-expected-when-drawing-on-transparent-backgro
+        pipelineStateDescriptor.colorAttachments[0].isBlendingEnabled = true
+        // RGB, アルファそれぞれのブレンディング操作を選択する
+        // -> ここではデフォルト値（add）を指定
+        pipelineStateDescriptor.colorAttachments[0].rgbBlendOperation = .add
+        pipelineStateDescriptor.colorAttachments[0].alphaBlendOperation = .add
+        // 描画元（source）のRGB, アルファのブレンド係数を指定
+        pipelineStateDescriptor.colorAttachments[0].sourceRGBBlendFactor = .one
+        pipelineStateDescriptor.colorAttachments[0].sourceAlphaBlendFactor = .one
+        // 描画先（destination）のRGB、アルファのブレンド係数を指定
+        pipelineStateDescriptor.colorAttachments[0].destinationRGBBlendFactor = .oneMinusSourceAlpha
+        pipelineStateDescriptor.colorAttachments[0].destinationAlphaBlendFactor = .oneMinusSourceAlpha
+
+         
         do {
             self.pipelineState = try device.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
         } catch let error  {
@@ -195,93 +240,6 @@ extension ViewController {
         timer.add(to: RunLoop.main, forMode: .default)
     }
     
-    func makeTexture(device: MTLDevice?) -> MTLTexture? {
-        // アセットカタログから画像を読み込む
-        // guard let image = UIImage(named: "TextureImage") else { return nil }
-        //guard let image = UIImage(named: "arrowImage") else { return nil }
-        let image = textImageCreater.makeTextImage()
-        self.textureImage = image
-        
-        let date = Date()
-        print("hoge!", image.size)
-        
-        // CGImageを取得する
-        guard let cgImage = image.cgImage else {
-            return nil
-        }
-        
-        // データプロバイダ経由でピクセルデータを取得する
-        guard let pixelData = cgImage.dataProvider?.data else {
-            return nil
-        }
-
-        guard let srcBits = CFDataGetBytePtr(pixelData) else {
-            return nil
-        }
-        
-        // テクスチャを作成する
-        let desc = MTLTextureDescriptor.texture2DDescriptor(
-            pixelFormat: .rgba8Unorm,
-            width: cgImage.width,
-            height: cgImage.height,
-            mipmapped: false)
-        
-        let texture = device?.makeTexture(descriptor: desc)
-        
-        // RGBA形式のピクセルデータを作る
-        let bytesPerRow = cgImage.width * 4
-        var dstBits = Data(count: bytesPerRow * cgImage.height)
-        let alphaInfo = cgImage.alphaInfo
-        print("hoge", alphaInfo)
-        /*
-        let rPos = (alphaInfo == .first || alphaInfo == .noneSkipFirst) ? 1 : 0
-        let gPos = rPos + 1
-        let bPos = gPos + 1
-        let aPos = (alphaInfo == .last || alphaInfo == .noneSkipLast) ? 3 : 0
-        */
-        let rPos = 2
-        let gPos = 1
-        let bPos = 0
-        let aPos = 3
-
-        
-        //print("hoge!!!", rPos, gPos, bPos, aPos)
-           
-        for y in 0 ..< cgImage.height {
-            for x in 0 ..< cgImage.width {
-                let srcOff = y * cgImage.bytesPerRow +
-                    x * cgImage.bitsPerPixel / 8
-                let dstOff = y * bytesPerRow + x * 4
-                
-                dstBits[dstOff] = srcBits[srcOff + rPos]
-                dstBits[dstOff + 1] = srcBits[srcOff + gPos]
-                dstBits[dstOff + 2] = srcBits[srcOff + bPos]
-                
-                if alphaInfo != .none {
-                    dstBits[dstOff + 3] = srcBits[srcOff + aPos]
-                }
-            }
-        }
-        
-        // テクスチャのピクセルデータを置き換える
-        dstBits.withUnsafeBytes { (bufPtr) in
-            if let baseAddress = bufPtr.baseAddress {
-                let region = MTLRegion(origin: MTLOrigin(x: 0, y: 0, z: 0),
-                                       size: MTLSize(width: cgImage.width,
-                                                     height: cgImage.height,
-                                                     depth: 1))
-                texture?.replace(region: region,
-                                 mipmapLevel: 0,
-                                 withBytes: baseAddress,
-                                 bytesPerRow: bytesPerRow)
-            }
-        }
-
-        print("make texture finish", Date().timeIntervalSince(date))
-        
-        return texture
-    }
-
     
     /// 画面のリフレッシュに同期して実行する画面更新処理
     @objc func loop() {
@@ -306,7 +264,9 @@ extension ViewController {
         renderPassDescriptor.colorAttachments[0].texture = drawable.texture
         // 描画前に、画面をリセットする. その時の背景色をcleaColorで指定
         renderPassDescriptor.colorAttachments[0].loadAction = .clear
+        // renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
         renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
+        // renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 1, green: 1, blue: 1, alpha: 1)
         
         /* 3. コマンドエンコーダーを作成 */
         guard let encoder = cmdBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) else { return }
@@ -314,6 +274,8 @@ extension ViewController {
         if let pipeline = self.pipelineState {
             // パイプライン状態オブジェクトを設定する
             encoder.setRenderPipelineState(pipeline)
+            
+            // encoder.setBlendColor(red: 0, green: 0, blue: 0, alpha: 1)
             
             // Vertex関数に渡す引数を設定する
             encoder.setVertexBytes(self.verticeArray,

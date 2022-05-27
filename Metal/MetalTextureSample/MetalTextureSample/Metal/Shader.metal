@@ -21,6 +21,9 @@ typedef struct {
 
     // テクスチャ座標
     float2 textureCoordinate;
+    
+    // テクスチャのアルファ値
+    float targetAlpha;
 
 } RasterizerData;
 
@@ -36,19 +39,44 @@ vertex RasterizerData vertexShader(
     result.position.xy = vertices[vertexID].position / (*viewportSize);
     result.color = vertices[vertexID].color;
     result.textureCoordinate = vertices[vertexID].textureCoordinate;
+    result.targetAlpha = vertices[vertexID].targetAlpha;
     return result;
 }
 
+/**
+ 参考
+ ・Creating and Sampling Textures
+   https://developer.apple.com/documentation/metal/textures/creating_and_sampling_textures
+ */
 fragment float4 fragmentShader(
     RasterizerData in [[stage_in]],
     metal::texture2d<half> texture [[texture(kFragmentInputIndexTexture)]])
 {
+    /**
+     レンダリングされる領域サイズとテクスチャサイズが異なる場合に、どのように色を補完するかを決める。
+     ・mag_filterモードは、領域がテクスチャのサイズより大きいときにサンプラーが返す色を計算する方法を指定
+     ・min_filterモードは、領域がテクスチャのサイズより小さいときにサンプラーが返す色を計算する方法を指定
+     */
     constexpr metal::sampler textureSampler(metal::mag_filter::nearest,
                                             metal::min_filter::nearest);
     const half4 colorSample = texture.sample(textureSampler,
         in.textureCoordinate);
         
-    return float4(colorSample);
+    float4 color = float4(colorSample);
+    // アルファチャンネルが0の場合、透明箇所なので色を破棄
+    // 参考：https://metalbyexample.com/translucency-and-transparency/
+    /*
+    if (color.a == 0) {
+        discard_fragment();
+    } else {
+        color.a *= in.targetAlpha;
+    }
+    */
+    color.r *= in.targetAlpha;
+    color.g *= in.targetAlpha;
+    color.b *= in.targetAlpha;
+    color.a *= in.targetAlpha;
+    return color;
     
     //return in.color;
 }

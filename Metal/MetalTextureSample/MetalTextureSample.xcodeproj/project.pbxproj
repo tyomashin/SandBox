@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B947DCE283E1A63004A5B48 /* MultiPipeLineState.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B947DCD283E1A63004A5B48 /* MultiPipeLineState.storyboard */; };
+		7B947DD0283E1A71004A5B48 /* MultiPipeLineStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947DCF283E1A71004A5B48 /* MultiPipeLineStateViewController.swift */; };
+		7B947DFD283FD0EA004A5B48 /* TextureCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947DFC283FD0EA004A5B48 /* TextureCreator.swift */; };
 		7BA9EDCE2828E7850032EB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9EDCD2828E7850032EB01 /* AppDelegate.swift */; };
 		7BA9EDD02828E7850032EB01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9EDCF2828E7850032EB01 /* SceneDelegate.swift */; };
 		7BA9EDD22828E7850032EB01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9EDD12828E7850032EB01 /* ViewController.swift */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B947DCD283E1A63004A5B48 /* MultiPipeLineState.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MultiPipeLineState.storyboard; sourceTree = "<group>"; };
+		7B947DCF283E1A71004A5B48 /* MultiPipeLineStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPipeLineStateViewController.swift; sourceTree = "<group>"; };
+		7B947DFC283FD0EA004A5B48 /* TextureCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureCreator.swift; sourceTree = "<group>"; };
 		7BA9EDCA2828E7850032EB01 /* MetalTextureSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalTextureSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA9EDCD2828E7850032EB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BA9EDCF2828E7850032EB01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +51,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B947DC8283E1A2C004A5B48 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B947DCC283E1A4E004A5B48 /* MultiPipeLineState */,
+				7B947DC9283E1A38004A5B48 /* Main */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7B947DC9283E1A38004A5B48 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7BA9EDD12828E7850032EB01 /* ViewController.swift */,
+				7BA9EDD32828E7850032EB01 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7B947DCC283E1A4E004A5B48 /* MultiPipeLineState */ = {
+			isa = PBXGroup;
+			children = (
+				7B947DCD283E1A63004A5B48 /* MultiPipeLineState.storyboard */,
+				7B947DCF283E1A71004A5B48 /* MultiPipeLineStateViewController.swift */,
+			);
+			path = MultiPipeLineState;
+			sourceTree = "<group>";
+		};
+		7B947DFB283FD0D1004A5B48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BA9EDE62828F5F00032EB01 /* TextImageCreater.swift */,
+				7B947DFC283FD0EA004A5B48 /* TextureCreator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7BA9EDC12828E7850032EB01 = {
 			isa = PBXGroup;
 			children = (
@@ -64,16 +106,15 @@
 		7BA9EDCC2828E7850032EB01 /* MetalTextureSample */ = {
 			isa = PBXGroup;
 			children = (
+				7B947DFB283FD0D1004A5B48 /* Model */,
+				7B947DC8283E1A2C004A5B48 /* Views */,
 				7BA9EDE82829008E0032EB01 /* Extensions */,
 				7BA9EDE12828E8290032EB01 /* Metal */,
 				7BA9EDCD2828E7850032EB01 /* AppDelegate.swift */,
 				7BA9EDCF2828E7850032EB01 /* SceneDelegate.swift */,
-				7BA9EDD12828E7850032EB01 /* ViewController.swift */,
-				7BA9EDD32828E7850032EB01 /* Main.storyboard */,
 				7BA9EDD62828E7870032EB01 /* Assets.xcassets */,
 				7BA9EDD82828E7870032EB01 /* LaunchScreen.storyboard */,
 				7BA9EDDB2828E7870032EB01 /* Info.plist */,
-				7BA9EDE62828F5F00032EB01 /* TextImageCreater.swift */,
 			);
 			path = MetalTextureSample;
 			sourceTree = "<group>";
@@ -156,6 +197,7 @@
 			files = (
 				7BA9EDDA2828E7870032EB01 /* LaunchScreen.storyboard in Resources */,
 				7BA9EDD72828E7870032EB01 /* Assets.xcassets in Resources */,
+				7B947DCE283E1A63004A5B48 /* MultiPipeLineState.storyboard in Resources */,
 				7BA9EDD52828E7850032EB01 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,8 +209,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B947DFD283FD0EA004A5B48 /* TextureCreator.swift in Sources */,
 				7BA9EDEA282900AC0032EB01 /* CGImageAlphaInfo+Extension.swift in Sources */,
 				7BA9EDD22828E7850032EB01 /* ViewController.swift in Sources */,
+				7B947DD0283E1A71004A5B48 /* MultiPipeLineStateViewController.swift in Sources */,
 				7BA9EDE72828F5F00032EB01 /* TextImageCreater.swift in Sources */,
 				7BA9EDCE2828E7850032EB01 /* AppDelegate.swift in Sources */,
 				7BA9EDE52828EA0D0032EB01 /* Shader.metal in Sources */,

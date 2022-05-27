@@ -48,7 +48,7 @@ class EventManager: NSObject {
     
     private func authCompleteTest() {
         print(store.sources)
-        /*
+        
         for cal in getCalendars() {
             print(cal, cal.source)
         }
@@ -56,7 +56,6 @@ class EventManager: NSObject {
         for cal in getCalendars() {
             print(cal.appDebugString)
         }
-        */
     }
 }
 
