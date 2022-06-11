@@ -11,7 +11,7 @@ import MetalKit
 class ViewController: UIViewController {
 
     // テクスチャのアルファ値
-    let targetAlpha: Float = 1
+    let targetAlpha: Float = 0.5
     
     let textImageCreater = TextImageCreater()
     let textureCreator = TextureCreator()
@@ -175,7 +175,8 @@ extension ViewController {
         
         // シェーダー間数オブジェクトを取得
         let vertexProgram = defaultLibrary.makeFunction(name: "vertexShader")
-        let fragmentProgram = defaultLibrary.makeFunction(name: "fragmentShader")
+        // let fragmentProgram = defaultLibrary.makeFunction(name: "fragmentShaderForAlphaBlending")
+        let fragmentProgram = defaultLibrary.makeFunction(name: "fragmentShaderForAlphaTest")
         
         // レンダーパイプライン状態オブジェクトのデスクリプタを定義
         let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
@@ -225,7 +226,9 @@ extension ViewController {
         pipelineStateDescriptor.colorAttachments[0].destinationRGBBlendFactor = .oneMinusSourceAlpha
         pipelineStateDescriptor.colorAttachments[0].destinationAlphaBlendFactor = .oneMinusSourceAlpha
 
-         
+        // Note: アルファテストを行う場合は、ブレンディング設定をOFFにしておく
+        // pipelineStateDescriptor.colorAttachments[0].isBlendingEnabled = false
+        
         do {
             self.pipelineState = try device.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
         } catch let error  {
@@ -265,7 +268,7 @@ extension ViewController {
         // 描画前に、画面をリセットする. その時の背景色をcleaColorで指定
         renderPassDescriptor.colorAttachments[0].loadAction = .clear
         // renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
-        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
+        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 1)
         // renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 1, green: 1, blue: 1, alpha: 1)
         
         /* 3. コマンドエンコーダーを作成 */
