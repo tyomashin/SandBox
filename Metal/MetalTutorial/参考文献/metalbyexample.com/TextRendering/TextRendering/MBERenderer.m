@@ -124,10 +124,15 @@ static float MBEFontAtlasSize = 2048;
     return [NSURL fileURLWithPath:documentsPath isDirectory:YES];
 }
 
+// Note: ここでリソースを初期化している模様
 - (void)buildResources
 {
+    // Note: フォントアトラスの作成
     [self buildFontAtlas];
+    
+    // Note: テキストメッシュの作成
     [self buildTextMesh];
+    
     [self buildUniformBuffer];
 }
 

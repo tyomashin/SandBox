@@ -290,5 +290,61 @@ class TransparentPipelineObjectDrawer {
         ]
         
         
+        
+        // 追加1. 黒い背景
+        leftX = Float(20) - baseX
+        rightX = Float(100) - baseX
+        topY = baseY - Float(500)
+        bottomY = baseY - Float(580)
+
+        self.vertexArray += [
+            ShaderVertex(
+                position: vector_float2(leftX, topY), color: vector_float4(0, 0, 0, 1)
+            ),
+            ShaderVertex(
+                position: vector_float2(leftX, bottomY), color: vector_float4(0, 0, 0, 1)
+            ),
+            ShaderVertex(
+                position: vector_float2(rightX, bottomY),  color: vector_float4(0, 0, 0, 1)
+            ),
+            
+            ShaderVertex(
+                position: vector_float2(leftX, topY), color: vector_float4(0, 0, 0, 1)
+            ),
+            ShaderVertex(
+                position: vector_float2(rightX, topY), color: vector_float4(0, 0, 0, 1)
+            ),
+            ShaderVertex(
+                position: vector_float2(rightX, bottomY),  color: vector_float4(0, 0, 0, 1)
+            )
+        ]
+        
+        // 半透明な赤色
+        leftX = Float(30) - baseX
+        rightX = Float(110) - baseX
+        topY = baseY - Float(510)
+        bottomY = baseY - Float(590)
+
+        self.vertexArray += [
+            ShaderVertex(
+                position: vector_float2(leftX, topY), color: vector_float4(1, 0, 0, 0.5)
+            ),
+            ShaderVertex(
+                position: vector_float2(leftX, bottomY), color: vector_float4(1, 0, 0, 0.5)
+            ),
+            ShaderVertex(
+                position: vector_float2(rightX, bottomY),  color: vector_float4(1, 0, 0, 0.5)
+            ),
+            
+            ShaderVertex(
+                position: vector_float2(leftX, topY), color: vector_float4(1, 0, 0, 0.5)
+            ),
+            ShaderVertex(
+                position: vector_float2(rightX, topY), color: vector_float4(1, 0, 0, 0.5)
+            ),
+            ShaderVertex(
+                position: vector_float2(rightX, bottomY),  color: vector_float4(1, 0, 0, 0.5)
+            )
+        ]
     }
 }
