@@ -16,6 +16,9 @@
 		7B947DF3283E81B3004A5B48 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 7B947DF2283E81B3004A5B48 /* Shader.metal */; };
 		7B947DF8283E873E004A5B48 /* OpaquePipeLineObjectDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947DF7283E873E004A5B48 /* OpaquePipeLineObjectDrawer.swift */; };
 		7B947DFA283F6014004A5B48 /* TransparentPipelineObjectDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B947DF9283F6013004A5B48 /* TransparentPipelineObjectDrawer.swift */; };
+		7BCF64C5286BF2DA00D99ED9 /* TexturePipelineObjectDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF64C4286BF2D900D99ED9 /* TexturePipelineObjectDrawer.swift */; };
+		7BCF64C8286BFA7E00D99ED9 /* TextImageCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF64C7286BFA7E00D99ED9 /* TextImageCreater.swift */; };
+		7BCF64CA286BFAE500D99ED9 /* TextureCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF64C9286BFAE500D99ED9 /* TextureCreator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		7B947DF5283E829A004A5B48 /* HelloMetal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloMetal-Bridging-Header.h"; sourceTree = "<group>"; };
 		7B947DF7283E873E004A5B48 /* OpaquePipeLineObjectDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpaquePipeLineObjectDrawer.swift; sourceTree = "<group>"; };
 		7B947DF9283F6013004A5B48 /* TransparentPipelineObjectDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentPipelineObjectDrawer.swift; sourceTree = "<group>"; };
+		7BCF64C4286BF2D900D99ED9 /* TexturePipelineObjectDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TexturePipelineObjectDrawer.swift; sourceTree = "<group>"; };
+		7BCF64C7286BFA7E00D99ED9 /* TextImageCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImageCreater.swift; sourceTree = "<group>"; };
+		7BCF64C9286BFAE500D99ED9 /* TextureCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureCreator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 		7B947DDC283E8014004A5B48 /* MetalBrendhingSample */ = {
 			isa = PBXGroup;
 			children = (
+				7BCF64C6286BFA7300D99ED9 /* Model */,
 				7B947DF6283E8710004A5B48 /* PipeLineObjectDrawer */,
 				7B947DF1283E81A8004A5B48 /* Metal */,
 				7B947DDD283E8014004A5B48 /* AppDelegate.swift */,
@@ -92,8 +99,18 @@
 			children = (
 				7B947DF7283E873E004A5B48 /* OpaquePipeLineObjectDrawer.swift */,
 				7B947DF9283F6013004A5B48 /* TransparentPipelineObjectDrawer.swift */,
+				7BCF64C4286BF2D900D99ED9 /* TexturePipelineObjectDrawer.swift */,
 			);
 			path = PipeLineObjectDrawer;
+			sourceTree = "<group>";
+		};
+		7BCF64C6286BFA7300D99ED9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BCF64C7286BFA7E00D99ED9 /* TextImageCreater.swift */,
+				7BCF64C9286BFAE500D99ED9 /* TextureCreator.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,12 +184,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BCF64C5286BF2DA00D99ED9 /* TexturePipelineObjectDrawer.swift in Sources */,
 				7B947DF3283E81B3004A5B48 /* Shader.metal in Sources */,
 				7B947DFA283F6014004A5B48 /* TransparentPipelineObjectDrawer.swift in Sources */,
 				7B947DE2283E8014004A5B48 /* ViewController.swift in Sources */,
 				7B947DDE283E8014004A5B48 /* AppDelegate.swift in Sources */,
 				7B947DE0283E8014004A5B48 /* SceneDelegate.swift in Sources */,
 				7B947DF8283E873E004A5B48 /* OpaquePipeLineObjectDrawer.swift in Sources */,
+				7BCF64C8286BFA7E00D99ED9 /* TextImageCreater.swift in Sources */,
+				7BCF64CA286BFAE500D99ED9 /* TextureCreator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

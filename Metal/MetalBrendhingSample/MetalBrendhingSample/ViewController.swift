@@ -54,6 +54,7 @@ class ViewController: UIViewController {
      */
     let opaquePSODrawer = OpaquePipeLineObjectDrawer()
     let transparentPSODrawer = TransparentPipelineObjectDrawer()
+    let texturePSODrawer = TexturePipelineObjectDrawer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +64,7 @@ class ViewController: UIViewController {
         
         opaquePSODrawer.initData(view: self.view)
         transparentPSODrawer.initData(view: self.view)
+        texturePSODrawer.initData(view: self.view)
     }
 }
 
@@ -87,6 +89,7 @@ extension ViewController {
         let defaultLib = device.makeDefaultLibrary()!
         opaquePSODrawer.setupPSO(currentDevice: device, library: defaultLib)
         transparentPSODrawer.setupPSO(currentDevice: device, library: defaultLib)
+        texturePSODrawer.setupPSO(currentDevice: device, library: defaultLib)
         
         /* コマンドキューを作成 */
         commandQueue = device.makeCommandQueue()
@@ -123,8 +126,9 @@ extension ViewController {
         let encoder = cmdBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor)!
         
         /* PSOごとの描画処理 */
-        opaquePSODrawer.drawPrimitives(view: self.view, encoder: encoder, currentDevice: device)
+        // opaquePSODrawer.drawPrimitives(view: self.view, encoder: encoder, currentDevice: device)
         transparentPSODrawer.drawPrimitives(view: self.view, encoder: encoder, currentDevice: device)
+        // texturePSODrawer.drawPrimitives(view: self.view, encoder: encoder, currentDevice: device)
         
         // エンコードを終了して、GPUにコマンドバッファをコミットする
         encoder.endEncoding()

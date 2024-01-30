@@ -1,0 +1,23 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "AAA" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AAAValue"
+          }
+        }
+      }
+    },
+    "BBB" : {
+
+    },
+    "Buy a book" : {
+
+    }
+  },
+  "version" : "1.0"
+}
